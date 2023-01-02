@@ -18,6 +18,12 @@ impl<T> std::ops::Deref for CsrfForm<T> {
     }
 }
 
+impl<T> std::ops::DerefMut for CsrfForm<T> {
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+
 #[derive(Debug)]
 pub enum CsrfError<E> {
     CSRFTokenInvalid,
